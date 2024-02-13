@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/pomodorozoo/static/css/main.9802ab90.css",
+    "main.js": "/pomodorozoo/static/js/main.5ec71990.js",
+    "static/media/background.png": "/pomodorozoo/static/media/background.00fad01e48626c866f67.png",
+    "index.html": "/pomodorozoo/index.html",
+    "main.9802ab90.css.map": "/pomodorozoo/static/css/main.9802ab90.css.map",
+    "main.5ec71990.js.map": "/pomodorozoo/static/js/main.5ec71990.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9802ab90.css",
+    "static/js/main.5ec71990.js"
+  ]
+}
