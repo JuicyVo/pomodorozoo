@@ -2,31 +2,30 @@
   background-image: url('images/background.png');
   background-size: cover;
   background-position: center;
-  min-height: 100vh; /* Ensure a minimum height of 100% of the viewport height */
+  width: 100%;
+  height: 100vh;
   display: flex;
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
+  justify-content: center;
+  align-items: center;
 }
 
+
+@media screen and (max-width: 768px) {
+  .App {
+    overflow-x: auto;
+    color: red; /* for test reasons */
+  }
+}
 
 .center-circle {
-  width: 200px; /* Adjust width as needed */
-  height: 200px; /* Adjust height as needed */
+  width: 200px;
+  height: 200px;
   margin-left: 4vw;
-  border-radius: 50%; /* Makes the div round */
-  background-color: #f0f0f0; /* Background color of the circle */
+  border-radius: 50%;
+  background-color: #f0f0f0;
   display: flex;
-  flex-direction: column; /* Stack items in a column */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-    z-index: 2; /* Ensure center circle appears above sprites */
-  
-  
-}
-
-.sprites {
-  position: absolute; /* Position the sprites absolutely */
-  top: 0; /* Position from the top */
-  left: 0; /* Position from the left */
-  z-index: 1; /* Ensure sprites appear above center circle */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }

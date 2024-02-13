@@ -9,25 +9,46 @@
 }
 
 .pikachu {
-  width: 40px;
-  height: 40px;
-  top: 44%;
-  left: 55%;
-  transform: translate(-50%, -50%);
+  width: 30px; /* Set width */
+  height: 30px; /* Set height */
+  top: calc(44vh - 15px); /* Calculate top position */
+  left: calc(50vw - 15px); /* Calculate left position */
 }
 
 .charizard {
-  width: 100px;
-  height: 100px;
-  top: 41%;
-  left: 85%;
-  transform: translate(-50%, -50%);
+  width: 100px; /* Set width */
+  height: 100px; /* Set height */
+  top: calc(41vh - 50px); /* Calculate top position */
+  left: calc(85vw - 50px); /* Calculate left position */
 }
 
 .magikarp {
-  width: 40px;
-  height: 100px;
-  top: 55.5%;
-  left: 64%;
-  transform: translate(-50%, -50%);
+  width: 30px; /* Set width */
+  height: 60px; /* Set height */
+  top: calc(55.5vh - 30px); /* Calculate top position */
+  left: calc(64vw - 15px); /* Calculate left position */
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 767px) {
+  .pikachu {
+    width: 60px; /* Set width for mobile */
+    height: 60px; /* Set height for mobile */
+    top: calc(40vh - 30px); /* Calculate top position for mobile */
+    left: calc(50vw - 30px); /* Calculate left position for mobile */
+  }
+
+  .charizard {
+    width: 150px; /* Set width for mobile */
+    height: 150px; /* Set height for mobile */
+    top: calc(35vh - 75px); /* Calculate top position for mobile */
+    left: calc(75vw - 75px); /* Calculate left position for mobile */
+  }
+
+  .magikarp {
+    width: 60px; /* Set width for mobile */
+    height: 120px; /* Set height for mobile */
+    top: calc(50vh - 60px); /* Calculate top position for mobile */
+    left: calc(60vw - 30px); /* Calculate left position for mobile */
+  }
 }
