@@ -2,12 +2,12 @@
   background-image: url('images/background.png');
   background-size: cover;
   background-position: center;
-  width: 100%;
-  height: 100vh;
+  min-height: 100vh; /* Ensure a minimum height of 100% of the viewport height */
   display: flex;
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
 }
+
 
 .center-circle {
   width: 200px; /* Adjust width as needed */
@@ -19,4 +19,14 @@
   flex-direction: column; /* Stack items in a column */
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
+    z-index: 2; /* Ensure center circle appears above sprites */
+  
+  
+}
+
+.sprites {
+  position: absolute; /* Position the sprites absolutely */
+  top: 0; /* Position from the top */
+  left: 0; /* Position from the left */
+  z-index: 1; /* Ensure sprites appear above center circle */
 }
