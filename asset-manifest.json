@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/pomodorozoo/static/css/main.de7a6631.css",
-    "main.js": "/pomodorozoo/static/js/main.cbe71cfb.js",
+    "main.css": "/pomodorozoo/static/css/main.083139e6.css",
+    "main.js": "/pomodorozoo/static/js/main.bac11aab.js",
     "static/media/background.png": "/pomodorozoo/static/media/background.00fad01e48626c866f67.png",
     "static/media/gyarados.gif": "/pomodorozoo/static/media/gyarados.d9a8c672bbedc9435533.gif",
     "static/media/wailord.gif": "/pomodorozoo/static/media/wailord.543ebfebcae20ee843cc.gif",
+    "static/media/onix.gif": "/pomodorozoo/static/media/onix.10907f818e684c3c2e74.gif",
     "static/media/lugia.gif": "/pomodorozoo/static/media/lugia.6fbc0f3551159a2f5d4c.gif",
     "index.html": "/pomodorozoo/index.html",
-    "main.de7a6631.css.map": "/pomodorozoo/static/css/main.de7a6631.css.map",
-    "main.cbe71cfb.js.map": "/pomodorozoo/static/js/main.cbe71cfb.js.map"
+    "main.083139e6.css.map": "/pomodorozoo/static/css/main.083139e6.css.map",
+    "main.bac11aab.js.map": "/pomodorozoo/static/js/main.bac11aab.js.map"
   },
   "entrypoints": [
-    "static/css/main.de7a6631.css",
-    "static/js/main.cbe71cfb.js"
+    "static/css/main.083139e6.css",
+    "static/js/main.bac11aab.js"
   ]
 }
