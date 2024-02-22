@@ -10,11 +10,32 @@
   --lugia-width-desktop: 100px;
   --gyarados-width-desktop: 120px;
   --wailord-width-desktop: 180px;
+  --pidgey-width-desktop: 30px;
+  --pidgeot-width-desktop: 50px;
+  --piplup-width-desktop: 40px;
+  --mudkip-width-desktop: 30px;
+  --skarmory-width-desktop: 60px;
+  --onix-width-desktop: 100px;
+  --zubat-width-desktop: 40px;
 }
 
 .pokemon {
   position: absolute;
 }
+
+@media screen and (max-width: 768px) {
+  .pokemon {
+    width: 10%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .pokemon {
+    width: 50px;
+  }
+}
+
 
 .pikachu {
   width: var(--pikachu-width-desktop);
@@ -44,7 +65,7 @@
   width: var(--blastoise-width-desktop);
   height: auto;
   top: 72%;
-  left: 65.5%;
+  left: 64.5%;
   transform: translate(-50%, -50%);
 }
 
@@ -52,7 +73,7 @@
   width: var(--venusaur-width-desktop);
   height: auto;
   top: 75%;
-  left: 80%;
+  left: 77%;
   transform: translate(-50%, -50%);
 }
 
@@ -76,7 +97,7 @@
   width: var(--rayquaza-width-desktop);
   height: auto;
   top: 15%;
-  left: 85%;
+  left: 81%;
   transform: translate(-50%, -50%);
 }
 
@@ -104,15 +125,60 @@
   transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 768px) {
-  .pokemon {
-    width: 10%;
-    height: auto;
-  }
+.pidgey {
+  width: var(--pidgey-width-desktop);
+  height: auto;
+  top: 10%;
+  left: 46%;
+  transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 480px) {
-  .pokemon {
-    width: 50px;
-  }
+.pidgeot {
+  width: var(--pidgeot-width-desktop);
+  height: auto;
+  top: 8%;
+  left: 48%;
+  transform: translate(-50%, -50%);
 }
+
+.piplup {
+  width: var(--piplup-width-desktop);
+  height: auto;
+  top: 92%;
+  left:13%;
+  transform: translate(-50%, -50%);
+}
+
+.mudkip {
+  width: var(--mudkip-width-desktop);
+  height: auto;
+  top: 85%;
+  left: 4%;
+  transform: translate(-50%, -50%);
+}
+
+.skarmory {
+  width: var(--skarmory-width-desktop);
+  height: auto;
+  top: 30%;
+  left: 88%;
+  transform: translate(-50%, -50%);
+}
+
+.onix {
+  width: var(--onix-width-desktop);
+  height: auto;
+  top: 44%;
+  left: 98%;
+  transform: translate(-50%, -50%);
+}
+
+.zubat {
+  width: var(--zubat-width-desktop);
+  height: auto;
+  top: 65%;
+  left: 34%;
+  transform: translate(-50%, -50%);
+}
+
+
