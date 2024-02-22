@@ -1,7 +1,15 @@
 :root {
   --pikachu-width-desktop: 30px;
-  --charizard-width-desktop: 100px;
+  --charizard-width-desktop: 90px;
   --magikarp-width-desktop: 30px;
+  --blastoise-width-desktop: 60px;
+  --venusaur-width-desktop: 70px;
+  --snorlax-width-desktop: 90px;
+  --mewtwo-width-desktop: 50px;
+  --rayquaza-width-desktop: 150px;
+  --lugia-width-desktop: 100px;
+  --gyarados-width-desktop: 120px;
+  --wailord-width-desktop: 180px;
 }
 
 .pokemon {
@@ -32,23 +40,79 @@
   transform: translate(-50%, -50%);
 }
 
+.blastoise {
+  width: var(--blastoise-width-desktop);
+  height: auto;
+  top: 72%;
+  left: 65.5%;
+  transform: translate(-50%, -50%);
+}
+
+.venusaur {
+  width: var(--venusaur-width-desktop);
+  height: auto;
+  top: 75%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+}
+
+.snorlax {
+  width: var(--snorlax-width-desktop);
+  height: auto;
+  top: 87%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.mewtwo {
+  width: var(--mewtwo-width-desktop);
+  height: auto;
+  top: 20%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.rayquaza {
+  width: var(--rayquaza-width-desktop);
+  height: auto;
+  top: 15%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+}
+
+.lugia {
+  width: var(--lugia-width-desktop);
+  height: auto;
+  top: 30%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.gyarados {
+  width: var(--gyarados-width-desktop);
+  height: auto;
+  top: 75%;
+  left: 24%;
+  transform: translate(-50%, -50%);
+}
+
+.wailord {
+  width: var(--wailord-width-desktop);
+  height: auto;
+  top: 45%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+}
+
 @media screen and (max-width: 768px) {
-  .pikachu, .charizard, .magikarp {
+  .pokemon {
     width: 10%;
     height: auto;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .pikachu {
-    width: calc(var(--pikachu-width-desktop) * 0.5);
-  }
-  
-  .charizard {
-    width: calc(var(--charizard-width-desktop) * 0.5);
-  }
-  
-  .magikarp {
-    width: calc(var(--magikarp-width-desktop) * 0.5);
+  .pokemon {
+    width: 50px;
   }
 }
