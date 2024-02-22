@@ -1,5 +1,3 @@
-// mapsprites.js
-
 import React from 'react';
 import PikachuImage from './images/sprites/pikachu1.gif';
 import CharizardImage from './images/sprites/charizard1.gif';
@@ -16,9 +14,22 @@ import PidgeyImage from './images/sprites/pidgey.gif';
 import PidgeotImage from './images/sprites/pidgeot.gif';
 import PiplupImage from './images/sprites/piplup.gif';
 import MudkipImage from './images/sprites/mudkip.gif';
-import SkarmoryImage from './images/sprites/skarmory.gif'; 
-import OnixImage from './images/sprites/onix.gif'; 
-import ZubatImage from './images/sprites/zubat.gif'; 
+import SkarmoryImage from './images/sprites/skarmory.gif';
+import OnixImage from './images/sprites/onix.gif';
+import ZubatImage from './images/sprites/zubat.gif';
+import TropiusImage from './images/sprites/tropius.gif';
+import MewImage from './images/sprites/mew.gif';
+import SandshrewImage from './images/sprites/sandshrew.gif';
+import WingullImage from './images/sprites/wingull.gif';
+import PelipperImage from './images/sprites/pelipper.gif';
+import LiligantImage from './images/sprites/liligant.gif';
+import GardevoirImage from './images/sprites/gardevoir.gif';
+import CuboneImage from './images/sprites/cubone.gif';
+import ChanseyImage from './images/sprites/chansey.gif';
+import AltariaImage from './images/sprites/altaria.gif';
+import BidoofImage from './images/sprites/bidoof.gif';
+import PoliwagImage from './images/sprites/poliwag.gif';
+import WobbuffetImage from './images/sprites/wobbuffet.gif';
 import './MapSprites.css';
 
 function MapSprites() {
@@ -39,9 +50,22 @@ function MapSprites() {
       <img src={PidgeotImage} alt="Pidgeot" className="pokemon pidgeot" />
       <img src={PiplupImage} alt="Piplup" className="pokemon piplup" />
       <img src={MudkipImage} alt="Mudkip" className="pokemon mudkip" />
-      <img src={SkarmoryImage} alt="Skarmory" className="pokemon skarmory" /> 
-      <img src={OnixImage} alt="Onix" className="pokemon onix" /> 
-      <img src={ZubatImage} alt="Zubat" className="pokemon zubat" /> 
+      <img src={SkarmoryImage} alt="Skarmory" className="pokemon skarmory" />
+      <img src={OnixImage} alt="Onix" className="pokemon onix" />
+      <img src={ZubatImage} alt="Zubat" className="pokemon zubat" />
+      <img src={TropiusImage} alt="Tropius" className="pokemon tropius" />
+      <img src={MewImage} alt="Mew" className="pokemon mew" />
+      <img src={SandshrewImage} alt="Sandshrew" className="pokemon sandshrew" />
+      <img src={WingullImage} alt="Wingull" className="pokemon wingull" />
+      <img src={PelipperImage} alt="Pelipper" className="pokemon pelipper" />
+      <img src={LiligantImage} alt="Liligant" className="pokemon liligant" />
+      <img src={GardevoirImage} alt="Gardevoir" className="pokemon gardevoir" />
+      <img src={CuboneImage} alt="Cubone" className="pokemon cubone" />
+      <img src={ChanseyImage} alt="Chansey" className="pokemon chansey" />
+      <img src={AltariaImage} alt="Altaria" className="pokemon altaria" />
+      <img src={BidoofImage} alt="Bidoof" className="pokemon bidoof" />
+      <img src={PoliwagImage} alt="Poliwag" className="pokemon poliwag" />
+      <img src={WobbuffetImage} alt="Wobbuffet" className="pokemon wobbuffet" />
     </div>
   );
 }
