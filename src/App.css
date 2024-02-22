@@ -2,25 +2,21 @@
   background-image: url('images/background.png');
   background-size: cover;
   background-position: center;
-  width: 100%;
+  width: 150vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-
-@media screen and (max-width: 768px) {
-  .App {
-    overflow-x: auto;
-    color: red; /* for test reasons */
-  }
+  overflow-x: auto;
 }
 
 .center-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 200px;
   height: 200px;
-  margin-left: 4vw;
   border-radius: 50%;
   background-color: #f0f0f0;
   display: flex;
@@ -29,3 +25,23 @@
   align-items: center;
   z-index: 2;
 }
+
+.background-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    width: 400%;
+    overflow-x: auto;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .App {
+    width: 270%;
+  }
+}
+
