@@ -24,12 +24,35 @@
   --pelipper-width-desktop: 50px;
   --liligant-width-desktop: 35px;
   --gardevoir-width-desktop: 50px;
-  --cubone-width-desktop: 30px;
+  --cubone-width-desktop: 40px;
   --chansey-width-desktop: 40px;
   --altaria-width-desktop: 80px;
   --bidoof-width-desktop: 40px;
   --poliwag-width-desktop: 40px;
   --wobbuffet-width-desktop: 60px;
+  --eevee-width-desktop: 40px; /* Added */
+  --vaporeon-width-desktop: 40px; /* Added */
+  --jolteon-width-desktop: 40px; /* Added */
+  --flareon-width-desktop: 40px; /* Added */
+  --espeon-width-desktop: 40px; /* Added */
+  --umbreon-width-desktop: 30px; /* Added */
+  --leafeon-width-desktop: 40px; /* Added */
+  --glaceon-width-desktop: 40px; /* Added */
+  --sylveon-width-desktop: 38px; /* Added */
+  --groudon-width-desktop: 120px; /* Added */
+  --kyogre-width-desktop: 120px; /* Added */
+  --latios-width-desktop: 70px; /* Added */
+  --latias-width-desktop: 50px; /* Added */
+  --butterfree-width-desktop: 40px; /* Added */
+  --beedrill-width-desktop: 80px; /* Added */
+  --crobat-width-desktop: 50px; /* Added */
+  --hoothoot-width-desktop: 40px; /* Added */
+  --exeggutor-width-desktop: 110px; /* Added */
+  --vileplume-width-desktop: 50px; /* Added */
+  --ninetales-width-desktop: 50px; /* Added */
+  --slaking-width-desktop: 50px; /* Added */
+  --wooper-width-desktop: 40px; /* Added */
+  --manaphy-width-desktop: 80px; /* Added */
 }
 
 .pokemon {
@@ -125,14 +148,14 @@
   width: var(--gyarados-width-desktop);
   height: auto;
   top: 75%;
-  left: 24%;
+  left: 16%;
   transform: translate(-50%, -50%);
 }
 
 .wailord {
   width: var(--wailord-width-desktop);
   height: auto;
-  top: 45%;
+  top: 55%;
   left: 5%;
   transform: translate(-50%, -50%);
 }
@@ -268,8 +291,8 @@
 .altaria {
   width: var(--altaria-width-desktop);
   height: auto;
-  top: 20%;
-  left: 40%;
+  top: 10%;
+  left: 30%;
   transform: translate(-50%, -50%);
 }
 
@@ -296,3 +319,189 @@
   left: 67%;
   transform: translate(-50%, -50%);
 }
+
+
+.eevee {
+  width: var(--eevee-width-desktop);
+  height: auto;
+  top: 47%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+}
+
+.vaporeon {
+  width: var(--vaporeon-width-desktop);
+  height: auto;
+  top: 47%;
+  left: 78%;
+  transform: translate(-50%, -50%);
+}
+
+.jolteon {
+  width: var(--jolteon-width-desktop);
+  height: auto;
+  top: 47%;
+  left: 82%;
+  transform: translate(-50%, -50%);
+}
+
+.flareon {
+  width: var(--flareon-width-desktop);
+  height: auto;
+  top: 50%;
+  left: 79%;
+  transform: translate(-50%, -50%);
+}
+
+.espeon {
+  width: var(--espeon-width-desktop);
+  height: auto;
+  top: 50%;
+  left: 77%;
+  transform: translate(-50%, -50%);
+}
+
+.umbreon {
+  width: var(--umbreon-width-desktop);
+  height: auto;
+  top: 50%;
+  left: 81%;
+  transform: translate(-50%, -50%);
+}
+
+.leafeon {
+  width: var(--leafeon-width-desktop);
+  height: auto;
+  top: 44%;
+  left: 83%;
+  transform: translate(-50%, -50%);
+}
+
+.glaceon {
+  width: var(--glaceon-width-desktop);
+  height: auto;
+  top: 43%;
+  left: 78%;
+  transform: translate(-50%, -50%);
+}
+
+.sylveon {
+  width: var(--sylveon-width-desktop);
+  height: auto;
+  top: 43%;
+  left: 82%;
+  transform: translate(-50%, -50%);
+}
+
+.groudon {
+  width: var(--groudon-width-desktop);
+  height: auto;
+  top: 74%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+}
+
+.kyogre {
+  width: var(--kyogre-width-desktop);
+  height: auto;
+  top: 72%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.latios {
+  width: var(--latios-width-desktop);
+  height: auto;
+  top: 20%;
+  left: 23%;
+  transform: translate(-50%, -50%);
+}
+
+.latias {
+  width: var(--latias-width-desktop);
+  height: auto;
+  top: 23%;
+  left: 21%;
+  transform: translate(-50%, -50%);
+}
+
+.butterfree {
+  width: var(--butterfree-width-desktop);
+  height: auto;
+  top: 18%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+}
+
+.beedrill {
+  width: var(--beedrill-width-desktop);
+  height: auto;
+  top: 15%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.crobat {
+  width: var(--crobat-width-desktop);
+  height: auto;
+  top: 60%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+}
+
+.hoothoot {
+  width: var(--hoothoot-width-desktop);
+  height: auto;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.exeggutor {
+  width: var(--exeggutor-width-desktop);
+  height: auto;
+  top: 86%;
+  left: 13%;
+  transform: translate(-50%, -50%);
+}
+
+.vileplume {
+  width: var(--vileplume-width-desktop);
+  height: auto;
+  top: 77%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+}
+
+.ninetales {
+  width: var(--ninetales-width-desktop);
+  height: auto;
+  top: 17%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+
+.slaking {
+  width: var(--slaking-width-desktop);
+  height: auto;
+  top: 55%;
+  left: 77%;
+  transform: translate(-50%, -50%);
+}
+
+.wooper {
+  width: var(--wooper-width-desktop);
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.manaphy {
+  width: var(--manaphy-width-desktop);
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
