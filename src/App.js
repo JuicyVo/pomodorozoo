@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
-import backgroundImage from './images/background.png';
 import useTimer from './useTimer'; 
 import MapSprites from './mapsprites';
+import CircularBar from './circularbar';
 
 function App() {
   const circleRef = useRef(null);
   const [score, setScore] = useState(1); 
   const [isStudyTime, setIsStudyTime] = useState(true); 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [progressWidth, setProgressWidth] = useState(0);
 
   const onTimerEnd = () => {
     setScore(prevScore => isStudyTime ? prevScore + 1 : prevScore); 
@@ -48,9 +49,15 @@ function App() {
     };
   }, [screenWidth]);
 
+  useEffect(() => {
+    setProgressWidth((timeLeft / initialStudyTime) * 100); // Update progress width based on remaining time
+  }, [timeLeft, initialStudyTime]);
+
   return (
     <div className="App">
+  
       <div className="center-circle" ref={circleRef}>
+      <CircularBar progress={progressWidth}/>
         <h1>{timeLeft < 10 ? `0${timeLeft}` : timeLeft}</h1>
         <p>{isStudyTime ? 'Study Time' : 'Break Time'}</p>
         <p>Pokemon Collected: {score}</p> 
@@ -60,8 +67,10 @@ function App() {
           <button onClick={startTimer}>Start</button>
         )}
         <button onClick={resetTimer}>Reset</button>
+   
       </div>
       <MapSprites/>
+      
     </div>
   );
 }

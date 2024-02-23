@@ -46,13 +46,13 @@
   --butterfree-width-desktop: 40px; /* Added */
   --beedrill-width-desktop: 80px; /* Added */
   --crobat-width-desktop: 50px; /* Added */
-  --hoothoot-width-desktop: 40px; /* Added */
+  --hoothoot-width-desktop: 30px; /* Added */
   --exeggutor-width-desktop: 110px; /* Added */
   --vileplume-width-desktop: 50px; /* Added */
   --ninetales-width-desktop: 50px; /* Added */
   --slaking-width-desktop: 50px; /* Added */
-  --wooper-width-desktop: 40px; /* Added */
-  --manaphy-width-desktop: 80px; /* Added */
+  --wooper-width-desktop: 25px; /* Added */
+  --manaphy-width-desktop: 50px; /* Added */
 }
 
 .pokemon {
@@ -452,8 +452,8 @@
 .hoothoot {
   width: var(--hoothoot-width-desktop);
   height: auto;
-  top: 50%;
-  left: 20%;
+  top: 28%;
+  left: 42%;
   transform: translate(-50%, -50%);
 }
 
@@ -492,16 +492,16 @@
 .wooper {
   width: var(--wooper-width-desktop);
   height: auto;
-  top: 50%;
-  left: 50%;
+  top: 53%;
+  left: 55%;
   transform: translate(-50%, -50%);
 }
 
 .manaphy {
   width: var(--manaphy-width-desktop);
   height: auto;
-  top: 50%;
-  left: 50%;
+  top: 70%;
+  left: 20%;
   transform: translate(-50%, -50%);
 }
 
