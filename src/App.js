@@ -16,8 +16,8 @@ function App() {
     setIsStudyTime(prevIsStudyTime => !prevIsStudyTime); 
   };
 
-  const initialStudyTime = isStudyTime ? 5 : 2;
-  const initialBreakTime = isStudyTime ? 2 : 5;
+  const initialStudyTime = isStudyTime ? 6 : 4;
+  const initialBreakTime = isStudyTime ? 4 : 6;
 
   const { timeLeft, isRunning, startTimer, stopTimer, resetTimer } = useTimer(initialStudyTime, initialBreakTime, onTimerEnd);
 
