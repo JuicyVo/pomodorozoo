@@ -3,15 +3,16 @@ import './App.css';
 import useTimer from './useTimer'; 
 import MapSprites from './mapsprites';
 import CircularBar from './circularbar';
-import OptionSettings from './images/optionbutton.png';
 
 function App() {
   const circleRef = useRef(null);
-  const [score, setScore] = useState(1); 
-  const [isStudyTime, setIsStudyTime] = useState(true); 
+ const { timeLeft, isRunning, startTimer, stopTimer, resetTimer, isStudyTime, progressWidth } = useTimer(newStudyTime, newBreakTime);
+
+  const [score, setScore] = useState(1);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [progressWidth, setProgressWidth] = useState(0);
   const [optionsClicked, setOptionsClicked] = useState(false); 
+  const [newStudyTime, setNewStudyTime] = useState(initialStudyTime);
+  const [newBreakTime, setNewBreakTime] = useState(initialBreakTime);
 
   const handleOptionsClick = () => { 
     setOptionsClicked(prevState => !prevState); // Toggle the optionsClicked state
@@ -20,33 +21,17 @@ function App() {
 
   const handleStudyTimeChange = (e) => {
     const studyTime = parseInt(e.target.value);
-    const breakTime = isStudyTime ? initialBreakTime : studyTime;
-    const updatedStudyTime = isNaN(studyTime) ? initialStudyTime : studyTime;
-    setInitialStudyTime(updatedStudyTime);
-    setInitialBreakTime(breakTime);
+    setNewStudyTime(studyTime);
   }
-
+  
   const handleBreakTimeChange = (e) => {
     const breakTime = parseInt(e.target.value);
-    const studyTime = !isStudyTime ? initialStudyTime : breakTime;
-    const updatedBreakTime = isNaN(breakTime) ? initialBreakTime : breakTime;
-    setInitialBreakTime(updatedBreakTime);
-    setInitialStudyTime(studyTime);
+    setNewBreakTime(breakTime);
   }
 
-  const handleTimeUpdate = () => {
-    setOptionsClicked(false);
+  const handleUpdateTimer = () => {
+    resetTimer(newStudyTime, newBreakTime);
   }
-
-  const onTimerEnd = () => {
-    setScore(prevScore => isStudyTime ? prevScore + 1 : prevScore); 
-    setIsStudyTime(prevIsStudyTime => !prevIsStudyTime); 
-  };
-
-  const [initialStudyTime, setInitialStudyTime] = useState(6); // Default study time is 6 seconds
-  const [initialBreakTime, setInitialBreakTime] = useState(4); // Default break time is 4 seconds
-
-  const { timeLeft, isRunning, startTimer, stopTimer, resetTimer } = useTimer(initialStudyTime, initialBreakTime, onTimerEnd);
 
   useEffect(() => {
     const handleResize = () => {
@@ -76,10 +61,6 @@ function App() {
     };
   }, [screenWidth]);
 
-  useEffect(() => {
-    setProgressWidth((timeLeft / initialStudyTime) * 100); // Update progress width based on remaining time
-  }, [timeLeft, initialStudyTime]);
-
   return (
     <div className="App">
       <div className="center-circle" ref={circleRef}>
@@ -92,19 +73,19 @@ function App() {
           <div className="time-inputs"> 
             <input 
               type="text" 
-              value={initialStudyTime} 
+              value={newStudyTime} 
               onChange={handleStudyTimeChange} 
               placeholder="Study Time (seconds)" 
               className="time-input" 
             /> 
             <input 
               type="text" 
-              value={initialBreakTime} 
+              value={newBreakTime} 
               onChange={handleBreakTimeChange} 
               placeholder="Break Time (seconds)" 
               className="time-input" 
             />
-            <button onClick={handleTimeUpdate} className="update-timer-btn">Update Timer</button>
+            <button onClick={handleUpdateTimer} className="update-timer-btn">Update Timer</button>
           </div>
         )}
         {isRunning ? (
