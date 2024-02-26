@@ -22,7 +22,7 @@
   background-image: url('./images/optionbutton.png'); 
   background-size: cover;
   background-repeat: no-repeat;
-
+  cursor: pointer;
   border: none;
 }
 
@@ -48,4 +48,9 @@
 
 .center-circle button {
   z-index: 3; 
+}
+
+.time-inputs {
+  position: relative;
+  z-index: 4; 
 }

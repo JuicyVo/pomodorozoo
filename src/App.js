@@ -11,19 +11,40 @@ function App() {
   const [isStudyTime, setIsStudyTime] = useState(true); 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [progressWidth, setProgressWidth] = useState(0);
+  const [optionsClicked, setOptionsClicked] = useState(false); 
 
-  const handleOptionsClick= ()=> { 
-    console.log (score)
+  const handleOptionsClick = () => { 
+    setOptionsClicked(prevState => !prevState); // Toggle the optionsClicked state
+    console.log(score);
   }
-  
+
+  const handleStudyTimeChange = (e) => {
+    const studyTime = parseInt(e.target.value);
+    const breakTime = isStudyTime ? initialBreakTime : studyTime;
+    const updatedStudyTime = isNaN(studyTime) ? initialStudyTime : studyTime;
+    setInitialStudyTime(updatedStudyTime);
+    setInitialBreakTime(breakTime);
+  }
+
+  const handleBreakTimeChange = (e) => {
+    const breakTime = parseInt(e.target.value);
+    const studyTime = !isStudyTime ? initialStudyTime : breakTime;
+    const updatedBreakTime = isNaN(breakTime) ? initialBreakTime : breakTime;
+    setInitialBreakTime(updatedBreakTime);
+    setInitialStudyTime(studyTime);
+  }
+
+  const handleTimeUpdate = () => {
+    setOptionsClicked(false);
+  }
 
   const onTimerEnd = () => {
     setScore(prevScore => isStudyTime ? prevScore + 1 : prevScore); 
     setIsStudyTime(prevIsStudyTime => !prevIsStudyTime); 
   };
 
-  const initialStudyTime = isStudyTime ? 6 : 4;
-  const initialBreakTime = isStudyTime ? 4 : 6;
+  const [initialStudyTime, setInitialStudyTime] = useState(6); // Default study time is 6 seconds
+  const [initialBreakTime, setInitialBreakTime] = useState(4); // Default break time is 4 seconds
 
   const { timeLeft, isRunning, startTimer, stopTimer, resetTimer } = useTimer(initialStudyTime, initialBreakTime, onTimerEnd);
 
@@ -61,27 +82,39 @@ function App() {
 
   return (
     <div className="App">
-  
       <div className="center-circle" ref={circleRef}>
-      <button className="options" onClick={handleOptionsClick}>
-
-</button>
-
-    
-      <CircularBar progress={progressWidth}/>
+        <button className="options" onClick={handleOptionsClick}></button>
+        <CircularBar progress={progressWidth}/>
         <h1>{timeLeft < 10 ? `0${timeLeft}` : timeLeft}</h1>
         <p>{isStudyTime ? 'Study Time' : 'Break Time'}</p>
         <p>Pokemon Collected: {score}</p> 
+        {optionsClicked && (
+          <div className="time-inputs"> 
+            <input 
+              type="text" 
+              value={initialStudyTime} 
+              onChange={handleStudyTimeChange} 
+              placeholder="Study Time (seconds)" 
+              className="time-input" 
+            /> 
+            <input 
+              type="text" 
+              value={initialBreakTime} 
+              onChange={handleBreakTimeChange} 
+              placeholder="Break Time (seconds)" 
+              className="time-input" 
+            />
+            <button onClick={handleTimeUpdate} className="update-timer-btn">Update Timer</button>
+          </div>
+        )}
         {isRunning ? (
           <button onClick={stopTimer}>Stop</button>
         ) : (
           <button onClick={startTimer}>Start</button>
         )}
         <button onClick={resetTimer}>Reset</button>
-   
       </div>
       <MapSprites/>
-      
     </div>
   );
 }
