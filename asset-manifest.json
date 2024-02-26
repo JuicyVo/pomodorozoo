@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pomodorozoo/static/css/main.938bf77b.css",
-    "main.js": "/pomodorozoo/static/js/main.7fbe1e02.js",
+    "main.js": "/pomodorozoo/static/js/main.410ae960.js",
     "static/media/background.png": "/pomodorozoo/static/media/background.00fad01e48626c866f67.png",
     "static/media/gyarados.gif": "/pomodorozoo/static/media/gyarados.d9a8c672bbedc9435533.gif",
     "static/media/sandshrew.gif": "/pomodorozoo/static/media/sandshrew.461932f84ff537759dac.gif",
@@ -12,10 +12,10 @@
     "static/media/lugia.gif": "/pomodorozoo/static/media/lugia.6fbc0f3551159a2f5d4c.gif",
     "index.html": "/pomodorozoo/index.html",
     "main.938bf77b.css.map": "/pomodorozoo/static/css/main.938bf77b.css.map",
-    "main.7fbe1e02.js.map": "/pomodorozoo/static/js/main.7fbe1e02.js.map"
+    "main.410ae960.js.map": "/pomodorozoo/static/js/main.410ae960.js.map"
   },
   "entrypoints": [
     "static/css/main.938bf77b.css",
-    "static/js/main.7fbe1e02.js"
+    "static/js/main.410ae960.js"
   ]
 }
