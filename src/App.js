@@ -3,16 +3,31 @@ import './App.css';
 import useTimer from './useTimer'; 
 import MapSprites from './mapsprites';
 import CircularBar from './circularbar';
+import { initialStudyTime, initialBreakTime } from './useTimer';
+
+
 
 function App() {
+
+    const initialStudyTime = 3; 
+    const initialBreakTime = 2; 
+  
+    const [newStudyTime, setNewStudyTime] = useState(initialStudyTime);
+    const [newBreakTime, setNewBreakTime] = useState(initialBreakTime);
+  
+    const { timeLeft, isRunning, startTimer, stopTimer, resetTimer, isStudyTime, progressWidth } = useTimer(newStudyTime, newBreakTime);
+
+  
+
   const circleRef = useRef(null);
- const { timeLeft, isRunning, startTimer, stopTimer, resetTimer, isStudyTime, progressWidth } = useTimer(newStudyTime, newBreakTime);
+
+
+
 
   const [score, setScore] = useState(1);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [optionsClicked, setOptionsClicked] = useState(false); 
-  const [newStudyTime, setNewStudyTime] = useState(initialStudyTime);
-  const [newBreakTime, setNewBreakTime] = useState(initialBreakTime);
+
 
   const handleOptionsClick = () => { 
     setOptionsClicked(prevState => !prevState); // Toggle the optionsClicked state

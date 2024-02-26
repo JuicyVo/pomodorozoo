@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 
-function useTimer(defaultStudyTime, defaultBreakTime) {
-  const [timeLeft, setTimeLeft] = useState(defaultStudyTime);
+function useTimer(initialStudyTime, initialBreakTime) {
+  const [timeLeft, setTimeLeft] = useState(initialStudyTime);
   const [isRunning, setIsRunning] = useState(false);
   const [isStudyTime, setIsStudyTime] = useState(true);
   const [progressWidth, setProgressWidth] = useState(0);
 
-  const startTimer = (studyTime, breakTime) => {
-    setTimeLeft(isStudyTime ? studyTime : breakTime);
+  const startTimer = () => {
     setIsRunning(true);
   };
 
@@ -16,7 +15,7 @@ function useTimer(defaultStudyTime, defaultBreakTime) {
   };
 
   const resetTimer = () => {
-    setTimeLeft(isStudyTime ? defaultStudyTime : defaultBreakTime);
+    setTimeLeft(isStudyTime ? initialStudyTime : initialBreakTime);
     setIsRunning(false);
   };
 
@@ -32,10 +31,10 @@ function useTimer(defaultStudyTime, defaultBreakTime) {
 
   const onTimerEnd = () => {
     if (isStudyTime) {
-      setTimeLeft(defaultBreakTime);
+      setTimeLeft(initialBreakTime);
       setIsStudyTime(false);
     } else {
-      setTimeLeft(defaultStudyTime);
+      setTimeLeft(initialStudyTime);
       setIsStudyTime(true);
     }
     setIsRunning(false);
@@ -50,7 +49,7 @@ function useTimer(defaultStudyTime, defaultBreakTime) {
           if (prevTimeLeft === 0) {
             clearInterval(timer);
             onTimerEnd();
-            return isStudyTime ? defaultBreakTime : defaultStudyTime;
+            return isStudyTime ? initialBreakTime : initialStudyTime;
           }
           return prevTimeLeft - 1;
         });
@@ -60,11 +59,11 @@ function useTimer(defaultStudyTime, defaultBreakTime) {
     }
 
     return () => clearInterval(timer);
-  }, [isRunning, isStudyTime, defaultStudyTime, defaultBreakTime]);
+  }, [isRunning, isStudyTime, initialStudyTime, initialBreakTime]);
 
   useEffect(() => {
-    setProgressWidth((timeLeft / (isStudyTime ? defaultStudyTime : defaultBreakTime)) * 100);
-  }, [timeLeft, isStudyTime, defaultStudyTime, defaultBreakTime]);
+    setProgressWidth((timeLeft / (isStudyTime ? initialStudyTime : initialBreakTime)) * 100);
+  }, [timeLeft, isStudyTime, initialStudyTime, initialBreakTime]);
 
   return { timeLeft, isRunning, startTimer, stopTimer, resetTimer, handleStudyTimeChange, handleBreakTimeChange, progressWidth };
 }
