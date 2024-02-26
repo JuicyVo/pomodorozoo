@@ -3,6 +3,7 @@ import './App.css';
 import useTimer from './useTimer'; 
 import MapSprites from './mapsprites';
 import CircularBar from './circularbar';
+import OptionSettings from './images/optionbutton.png';
 
 function App() {
   const circleRef = useRef(null);
@@ -10,6 +11,11 @@ function App() {
   const [isStudyTime, setIsStudyTime] = useState(true); 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [progressWidth, setProgressWidth] = useState(0);
+
+  const handleOptionsClick= ()=> { 
+    console.log (score)
+  }
+  
 
   const onTimerEnd = () => {
     setScore(prevScore => isStudyTime ? prevScore + 1 : prevScore); 
@@ -57,6 +63,11 @@ function App() {
     <div className="App">
   
       <div className="center-circle" ref={circleRef}>
+      <button className="options" onClick={handleOptionsClick}>
+
+</button>
+
+    
       <CircularBar progress={progressWidth}/>
         <h1>{timeLeft < 10 ? `0${timeLeft}` : timeLeft}</h1>
         <p>{isStudyTime ? 'Study Time' : 'Break Time'}</p>

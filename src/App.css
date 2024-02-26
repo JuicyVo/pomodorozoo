@@ -11,6 +11,21 @@
   overflow-x: auto;
 }
 
+.options {
+  width:40px;
+  height:40px;
+  position: absolute;
+  top: -20%;
+  left: 121%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  background-image: url('./images/optionbutton.png'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  border: none;
+}
+
 .center-circle {
   position: absolute;
   top: 50%;
