@@ -5,7 +5,6 @@ import MapSprites from './mapsprites';
 import CircularBar from './circularbar';
 import { initialStudyTime, initialBreakTime } from './useTimer';
 
-
 function App() {
     const initialStudyTime = 5; 
     const initialBreakTime = 2; 
@@ -37,11 +36,13 @@ function App() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setPokemonScoreTimer(prevTimer => prevTimer + 1);
-        }, 1200); 
+            if (isRunning) {
+                setPokemonScoreTimer(prevTimer => prevTimer + 1); // Increment score only when the timer is running
+            }
+        }, 1200); // Score increments every 2 seconds, change later
 
         return () => clearInterval(interval);
-    }, []);
+    }, [isRunning]);
 
     useEffect(() => {
         const handleResize = () => {
