@@ -8,7 +8,7 @@ import { initialStudyTime, initialBreakTime } from './useTimer';
 function App() {
     const initialStudyTime = 5; 
     const initialBreakTime = 2; 
-    const [pokemonScoreTimer, setPokemonScoreTimer] = useState(100);
+    const [pokemonScoreTimer, setPokemonScoreTimer] = useState(0);
     const [newStudyTime, setNewStudyTime] = useState(initialStudyTime);
     const [newBreakTime, setNewBreakTime] = useState(initialBreakTime);
   
