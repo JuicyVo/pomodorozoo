@@ -26,6 +26,6 @@ This project is a Pomodoro timer built using React, designed to help users manag
 
 
 
-![Alt text](./images/full.png)
+![Alt text](./src/images/full.png)
 
-![Alt text](./images/empty.png)
+![Alt text](./src/images/empty.png)
