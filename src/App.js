@@ -6,9 +6,9 @@ import CircularBar from './circularbar';
 import { initialStudyTime, initialBreakTime } from './useTimer';
 
 function App() {
-    const initialStudyTime = 5; 
-    const initialBreakTime = 2; 
-    const [pokemonScoreTimer, setPokemonScoreTimer] = useState(0);
+    const initialStudyTime = 300; 
+    const initialBreakTime = 120; 
+    const [pokemonScoreTimer, setPokemonScoreTimer] = useState(1);
     const [newStudyTime, setNewStudyTime] = useState(initialStudyTime);
     const [newBreakTime, setNewBreakTime] = useState(initialBreakTime);
   
@@ -39,7 +39,7 @@ function App() {
             if (isRunning) {
                 setPokemonScoreTimer(prevTimer => prevTimer + 1); // Increment score only when the timer is running
             }
-        }, 1200); // Score increments every 2 seconds, change later
+        }, 30000); // Score increments 
 
         return () => clearInterval(interval);
     }, [isRunning]);
