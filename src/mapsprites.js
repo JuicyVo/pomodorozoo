@@ -1,4 +1,6 @@
 import React from 'react';
+import './MapSprites.css';
+
 import PikachuImage from './images/sprites/pikachu1.gif';
 import CharizardImage from './images/sprites/charizard1.gif';
 import MagikarpImage from './images/sprites/magikarp1.gif';
@@ -53,65 +55,89 @@ import NinetalesImage from './images/sprites/ninetales.gif';
 import SlakingImage from './images/sprites/slaking.gif';
 import WooperImage from './images/sprites/wooper.gif';
 import ManaphyImage from './images/sprites/manaphy.gif';
-import './MapSprites.css';
 
-function MapSprites() {
+const pokemonData = [
+  { name: 'Pikachu', score: 1, image: PikachuImage },
+  { name: 'Charizard', score: 2, image: CharizardImage },
+  { name: 'Magikarp', score: 3, image: MagikarpImage },
+  { name: 'Blastoise', score: 4, image: BlastoiseImage },
+  { name: 'Venusaur', score: 5, image: VenusaurImage },
+  { name: 'Snorlax', score: 6, image: SnorlaxImage },
+  { name: 'Mewtwo', score: 7, image: MewtwoImage },
+  { name: 'Rayquaza', score: 8, image: RayquazaImage },
+  { name: 'Lugia', score: 9, image: LugiaImage },
+  { name: 'Gyarados', score: 10, image: GyaradosImage },
+  { name: 'Wailord', score: 11, image: WailordImage },
+  { name: 'Pidgey', score: 12, image: PidgeyImage },
+  { name: 'Pidgeot', score: 13, image: PidgeotImage },
+  { name: 'Piplup', score: 14, image: PiplupImage },
+  { name: 'Mudkip', score: 15, image: MudkipImage },
+  { name: 'Skarmory', score: 16, image: SkarmoryImage },
+  { name: 'Onix', score: 17, image: OnixImage },
+  { name: 'Zubat', score: 18, image: ZubatImage },
+  { name: 'Tropius', score: 19, image: TropiusImage },
+  { name: 'Mew', score: 20, image: MewImage },
+  { name: 'Sandshrew', score: 21, image: SandshrewImage },
+  { name: 'Wingull', score: 22, image: WingullImage },
+  { name: 'Pelipper', score: 23, image: PelipperImage },
+  { name: 'Liligant', score: 24, image: LiligantImage },
+  { name: 'Gardevoir', score: 25, image: GardevoirImage },
+  { name: 'Cubone', score: 26, image: CuboneImage },
+  { name: 'Chansey', score: 27, image: ChanseyImage },
+  { name: 'Altaria', score: 28, image: AltariaImage },
+  { name: 'Bidoof', score: 29, image: BidoofImage },
+  { name: 'Poliwag', score: 30, image: PoliwagImage },
+  { name: 'Wobbuffet', score: 31, image: WobbuffetImage },
+  { name: 'Eevee', score: 32, image: EeveeImage },
+  { name: 'Vaporeon', score: 33, image: VaporeonImage },
+  { name: 'Jolteon', score: 34, image: JolteonImage },
+  { name: 'Flareon', score: 35, image: FlareonImage },
+  { name: 'Espeon', score: 36, image: EspeonImage },
+  { name: 'Umbreon', score: 37, image: UmbreonImage },
+  { name: 'Leafeon', score: 38, image: LeafeonImage },
+  { name: 'Glaceon', score: 39, image: GlaceonImage },
+  { name: 'Sylveon', score: 40, image: SylveonImage },
+  { name: 'Groudon', score: 41, image: GroudonImage },
+  { name: 'Kyogre', score: 42, image: KyogreImage },
+  { name: 'Latios', score: 43, image: LatiosImage },
+  { name: 'Latias', score: 44, image: LatiasImage },
+  { name: 'Butterfree', score: 45, image: ButterfreeImage },
+  { name: 'Beedrill', score: 46, image: BeedrillImage },
+  { name: 'Crobat', score: 47, image: CrobatImage },
+  { name: 'Hoothoot', score: 48, image: HoothootImage },
+  { name: 'Exeggutor', score: 49, image: ExeggutorImage },
+  { name: 'Vileplume', score: 50, image: VileplumeImage },
+  { name: 'Ninetales', score: 51, image: NinetalesImage },
+  { name: 'Slaking', score: 52, image: SlakingImage },
+  { name: 'Wooper', score: 53, image: WooperImage },
+  { name: 'Manaphy', score: 54, image: ManaphyImage }
+];
+
+
+function renderPokemon(score) {
+  const renderedPokemon = [];
+
+  pokemonData.forEach(pokemon => {
+    const copies = Math.floor(score / pokemon.score);
+    for (let i = 0; i < copies; i++) {
+      renderedPokemon.push(
+        <img
+          key={`${pokemon.name}-${i}`}
+          src={pokemon.image}
+          alt={pokemon.name}
+          className={`pokemon ${pokemon.name.toLowerCase()}`}
+        />
+      );
+    }
+  });
+
+  return renderedPokemon;
+}
+
+function MapSprites({ score }) {
   return (
     <div className="background-container">
-      <img src={PikachuImage} alt="Pikachu" className="pokemon pikachu" />
-      <img src={CharizardImage} alt="Charizard" className="pokemon charizard" />
-      <img src={MagikarpImage} alt="Magikarp" className="pokemon magikarp" />
-      <img src={BlastoiseImage} alt="Blastoise" className="pokemon blastoise" />
-      <img src={VenusaurImage} alt="Venusaur" className="pokemon venusaur" />
-      <img src={SnorlaxImage} alt="Snorlax" className="pokemon snorlax" />
-      <img src={MewtwoImage} alt="Mewtwo" className="pokemon mewtwo" />
-      <img src={RayquazaImage} alt="Rayquaza" className="pokemon rayquaza" />
-      <img src={LugiaImage} alt="Lugia" className="pokemon lugia" />
-      <img src={GyaradosImage} alt="Gyarados" className="pokemon gyarados" />
-      <img src={WailordImage} alt="Wailord" className="pokemon wailord" />
-      <img src={PidgeyImage} alt="Pidgey" className="pokemon pidgey" />
-      <img src={PidgeotImage} alt="Pidgeot" className="pokemon pidgeot" />
-      <img src={PiplupImage} alt="Piplup" className="pokemon piplup" />
-      <img src={MudkipImage} alt="Mudkip" className="pokemon mudkip" />
-      <img src={SkarmoryImage} alt="Skarmory" className="pokemon skarmory" />
-      <img src={OnixImage} alt="Onix" className="pokemon onix" />
-      <img src={ZubatImage} alt="Zubat" className="pokemon zubat" />
-      <img src={TropiusImage} alt="Tropius" className="pokemon tropius" />
-      <img src={MewImage} alt="Mew" className="pokemon mew" />
-      <img src={SandshrewImage} alt="Sandshrew" className="pokemon sandshrew" />
-      <img src={WingullImage} alt="Wingull" className="pokemon wingull" />
-      <img src={PelipperImage} alt="Pelipper" className="pokemon pelipper" />
-      <img src={LiligantImage} alt="Liligant" className="pokemon liligant" />
-      <img src={GardevoirImage} alt="Gardevoir" className="pokemon gardevoir" />
-      <img src={CuboneImage} alt="Cubone" className="pokemon cubone" />
-      <img src={ChanseyImage} alt="Chansey" className="pokemon chansey" />
-      <img src={AltariaImage} alt="Altaria" className="pokemon altaria" />
-      <img src={BidoofImage} alt="Bidoof" className="pokemon bidoof" />
-      <img src={PoliwagImage} alt="Poliwag" className="pokemon poliwag" />
-      <img src={WobbuffetImage} alt="Wobbuffet" className="pokemon wobbuffet" />
-      <img src={EeveeImage} alt="Eevee" className="pokemon eevee" />
-      <img src={VaporeonImage} alt="Vaporeon" className="pokemon vaporeon" />
-      <img src={JolteonImage} alt="Jolteon" className="pokemon jolteon" />
-      <img src={FlareonImage} alt="Flareon" className="pokemon flareon" />
-      <img src={EspeonImage} alt="Espeon" className="pokemon espeon" />
-      <img src={UmbreonImage} alt="Umbreon" className="pokemon umbreon" />
-      <img src={LeafeonImage} alt="Leafeon" className="pokemon leafeon" />
-      <img src={GlaceonImage} alt="Glaceon" className="pokemon glaceon" />
-      <img src={SylveonImage} alt="Sylveon" className="pokemon sylveon" />
-      <img src={GroudonImage} alt="Groudon" className="pokemon groudon" />
-      <img src={KyogreImage} alt="Kyogre" className="pokemon kyogre" />
-      <img src={LatiosImage} alt="Latios" className="pokemon latios" />
-      <img src={LatiasImage} alt="Latias" className="pokemon latias" />
-      <img src={ButterfreeImage} alt="Butterfree" className="pokemon butterfree" />
-      <img src={BeedrillImage} alt="Beedrill" className="pokemon beedrill" />
-      <img src={CrobatImage} alt="Crobat" className="pokemon crobat" />
-      <img src={HoothootImage} alt="Hoothoot" className="pokemon hoothoot" />
-      <img src={ExeggutorImage} alt="Exeggutor" className="pokemon exeggutor" />
-      <img src={VileplumeImage} alt="Vileplume" className="pokemon vileplume" />
-      <img src={NinetalesImage} alt="Ninetales" className="pokemon ninetales" />
-      <img src={SlakingImage} alt="Slaking" className="pokemon slaking" />
-      <img src={WooperImage} alt="Wooper" className="pokemon wooper" />
-      <img src={ManaphyImage} alt="Manaphy" className="pokemon manaphy" />
+      {renderPokemon(score)}
     </div>
   );
 }

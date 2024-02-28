@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-function useTimer(initialStudyTime, initialBreakTime) {
-  const [timeLeft, setTimeLeft] = useState(initialStudyTime);
+function useTimer(newStudyTime, newBreakTime) {
+  const [timeLeft, setTimeLeft] = useState(newStudyTime);
   const [isRunning, setIsRunning] = useState(false);
   const [isStudyTime, setIsStudyTime] = useState(true);
   const [progressWidth, setProgressWidth] = useState(0);
@@ -15,29 +15,19 @@ function useTimer(initialStudyTime, initialBreakTime) {
   };
 
   const resetTimer = () => {
-    setTimeLeft(isStudyTime ? initialStudyTime : initialBreakTime);
+    setIsStudyTime(true); 
+    setTimeLeft(newStudyTime);
     setIsRunning(false);
   };
 
-  const handleStudyTimeChange = (studyTime) => {
+  const handleStudyTimeChange = () => {
+    setTimeLeft(newStudyTime);
     setIsStudyTime(true);
-    setTimeLeft(studyTime);
   };
 
-  const handleBreakTimeChange = (breakTime) => {
+  const handleBreakTimeChange = () => {
+    setTimeLeft(newBreakTime);
     setIsStudyTime(false);
-    setTimeLeft(breakTime);
-  };
-
-  const onTimerEnd = () => {
-    if (isStudyTime) {
-      setTimeLeft(initialBreakTime);
-      setIsStudyTime(false);
-    } else {
-      setTimeLeft(initialStudyTime);
-      setIsStudyTime(true);
-    }
-    setIsRunning(false);
   };
 
   useEffect(() => {
@@ -47,11 +37,12 @@ function useTimer(initialStudyTime, initialBreakTime) {
       timer = setInterval(() => {
         setTimeLeft(prevTimeLeft => {
           if (prevTimeLeft === 0) {
-            clearInterval(timer);
-            onTimerEnd();
-            return isStudyTime ? initialBreakTime : initialStudyTime;
+            const nextTime = isStudyTime ? newBreakTime : newStudyTime;
+            setIsStudyTime(!isStudyTime); // Toggle between study time and break time
+            return nextTime;
+          } else {
+            return prevTimeLeft - 1;
           }
-          return prevTimeLeft - 1;
         });
       }, 1000);
     } else {
@@ -59,13 +50,19 @@ function useTimer(initialStudyTime, initialBreakTime) {
     }
 
     return () => clearInterval(timer);
-  }, [isRunning, isStudyTime, initialStudyTime, initialBreakTime]);
+  }, [isRunning, newStudyTime, newBreakTime, isStudyTime]);
 
   useEffect(() => {
-    setProgressWidth((timeLeft / (isStudyTime ? initialStudyTime : initialBreakTime)) * 100);
-  }, [timeLeft, isStudyTime, initialStudyTime, initialBreakTime]);
+    setProgressWidth((timeLeft / (isStudyTime ? newStudyTime : newBreakTime)) * 100);
+  }, [timeLeft, isStudyTime, newStudyTime, newBreakTime]);
 
-  return { timeLeft, isRunning, startTimer, stopTimer, resetTimer, handleStudyTimeChange, handleBreakTimeChange, progressWidth };
+  useEffect(() => {
+    if (isRunning) {
+      setTimeLeft(isStudyTime ? newStudyTime : newBreakTime);
+    }
+  }, [isStudyTime, newStudyTime, newBreakTime, isRunning]);
+
+  return { timeLeft, isRunning, startTimer, stopTimer, resetTimer, handleStudyTimeChange, handleBreakTimeChange, progressWidth, isStudyTime };
 }
 
 export default useTimer;

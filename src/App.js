@@ -6,113 +6,113 @@ import CircularBar from './circularbar';
 import { initialStudyTime, initialBreakTime } from './useTimer';
 
 
-
 function App() {
-
-    const initialStudyTime = 3; 
+    const initialStudyTime = 5; 
     const initialBreakTime = 2; 
-  
+    const [pokemonScoreTimer, setPokemonScoreTimer] = useState(0);
     const [newStudyTime, setNewStudyTime] = useState(initialStudyTime);
     const [newBreakTime, setNewBreakTime] = useState(initialBreakTime);
   
-    const { timeLeft, isRunning, startTimer, stopTimer, resetTimer, isStudyTime, progressWidth } = useTimer(newStudyTime, newBreakTime);
+    const { timeLeft, isRunning, startTimer, stopTimer, resetTimer, progressWidth, isStudyTime } = useTimer(newStudyTime, newBreakTime);
 
+    const circleRef = useRef(null);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [optionsClicked, setOptionsClicked] = useState(false); 
+
+    const handleOptionsClick = () => { 
+        setOptionsClicked(prevState => !prevState); 
+    }
+
+    const handleStudyTimeChange = (e) => {
+        const studyTime = parseInt(e.target.value);
+        setNewStudyTime(studyTime);
+        resetTimer(studyTime, newBreakTime); 
+    }
   
+    const handleBreakTimeChange = (e) => {
+        const breakTime = parseInt(e.target.value);
+        setNewBreakTime(breakTime);
+        resetTimer(newStudyTime, breakTime); 
+    }
 
-  const circleRef = useRef(null);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setPokemonScoreTimer(prevTimer => prevTimer + 1);
+        }, 1200); 
 
+        return () => clearInterval(interval);
+    }, []);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
 
+        window.addEventListener('resize', handleResize);
 
-  const [score, setScore] = useState(1);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [optionsClicked, setOptionsClicked] = useState(false); 
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
+    function formatTime(totalSeconds) {
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
 
-  const handleOptionsClick = () => { 
-    setOptionsClicked(prevState => !prevState); // Toggle the optionsClicked state
-    console.log(score);
-  }
+    useEffect(() => {
+        const handleScroll = () => {
+            const circle = circleRef.current;
+            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+            const newLeft = (screenWidth - circle.offsetWidth) / 2 + scrollLeft;
+            circle.style.left = `${Math.max(newLeft, 0)}px`;
+        };
 
-  const handleStudyTimeChange = (e) => {
-    const studyTime = parseInt(e.target.value);
-    setNewStudyTime(studyTime);
-  }
-  
-  const handleBreakTimeChange = (e) => {
-    const breakTime = parseInt(e.target.value);
-    setNewBreakTime(breakTime);
-  }
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial position
 
-  const handleUpdateTimer = () => {
-    resetTimer(newStudyTime, newBreakTime);
-  }
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [screenWidth]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const circle = circleRef.current;
-      const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-      const newLeft = (screenWidth - circle.offsetWidth) / 2 + scrollLeft;
-      circle.style.left = `${Math.max(newLeft, 0)}px`;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial position
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [screenWidth]);
-
-  return (
-    <div className="App">
-      <div className="center-circle" ref={circleRef}>
-        <button className="options" onClick={handleOptionsClick}></button>
-        <CircularBar progress={progressWidth}/>
-        <h1>{timeLeft < 10 ? `0${timeLeft}` : timeLeft}</h1>
-        <p>{isStudyTime ? 'Study Time' : 'Break Time'}</p>
-        <p>Pokemon Collected: {score}</p> 
-        {optionsClicked && (
-          <div className="time-inputs"> 
-            <input 
-              type="text" 
-              value={newStudyTime} 
-              onChange={handleStudyTimeChange} 
-              placeholder="Study Time (seconds)" 
-              className="time-input" 
-            /> 
-            <input 
-              type="text" 
-              value={newBreakTime} 
-              onChange={handleBreakTimeChange} 
-              placeholder="Break Time (seconds)" 
-              className="time-input" 
-            />
-            <button onClick={handleUpdateTimer} className="update-timer-btn">Update Timer</button>
-          </div>
-        )}
-        {isRunning ? (
-          <button onClick={stopTimer}>Stop</button>
-        ) : (
-          <button onClick={startTimer}>Start</button>
-        )}
-        <button onClick={resetTimer}>Reset</button>
-      </div>
-      <MapSprites/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <div className="center-circle" ref={circleRef}>
+                <button className="options" onClick={handleOptionsClick}></button>
+                <CircularBar progress={progressWidth}/>
+                <h1>{formatTime(timeLeft)}</h1>
+                <p>{isStudyTime ? 'Study Time' : 'Break Time'}</p> 
+                <p>Pokemon Score: {pokemonScoreTimer}</p>
+                {optionsClicked && (
+                    <div className="time-inputs"> 
+                        <input 
+                            type="text" 
+                            value={newStudyTime} 
+                            onChange={handleStudyTimeChange} 
+                            placeholder="Study Time (seconds)" 
+                            className="time-input" 
+                        /> 
+                        <input 
+                            type="text" 
+                            value={newBreakTime} 
+                            onChange={handleBreakTimeChange} 
+                            placeholder="Break Time (seconds)" 
+                            className="time-input" 
+                        />
+                    </div>
+                )}
+                {isRunning ? (
+                    <button onClick={stopTimer}>Stop</button>
+                ) : (
+                    <button onClick={startTimer}>Start</button>
+                )}
+                <button onClick={resetTimer}>Reset</button>
+            </div>
+            <MapSprites score={pokemonScoreTimer}/>
+        </div>
+    );
 }
 
 export default App;

@@ -452,7 +452,7 @@
 .hoothoot {
   width: var(--hoothoot-width-desktop);
   height: auto;
-  top: 28%;
+  top: 30%;
   left: 42%;
   transform: translate(-50%, -50%);
 }
