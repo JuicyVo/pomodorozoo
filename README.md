@@ -1,5 +1,9 @@
 # Pomodoro Timer with Pokémon Sprites
 
+![Alt text](./src/images/full.png)
+
+![Alt text](./src/images/empty.png)
+
 ## Description
 This project is a Pomodoro timer built using React, designed to help users manage their study or work sessions effectively. The timer follows the Pomodoro Technique, where users work for a set period (e.g., 25 minutes) followed by a short break. As the study sessions become longer, more animated sprites of Pokémon appear on the screen, gamifying the study process and providing visual feedback on the user's progress.
 
@@ -26,6 +30,3 @@ This project is a Pomodoro timer built using React, designed to help users manag
 
 
 
-![Alt text](./src/images/full.png)
-
-![Alt text](./src/images/empty.png)
